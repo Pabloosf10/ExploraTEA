@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExploraTEA - Evento Lúdico-Deportivo Inclusivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        /* Header y Navegación */
+        header {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            color: #FFD700;
+        }
+
+        /* Secciones generales */
+        .section {
+            padding: 6rem 0 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1976D2;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA726);
+            border-radius: 2px;
+        }
+
+        /* Inicio */
+        #inicio {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 0 6rem;
+            margin-top: 80px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA726);
+            color: #1976D2;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
+        }
+
+        /* Justificación */
+        #justificacion {
+            background: white;
+            border-radius: 20px;
+            margin: 2rem 0;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .justificacion-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cita {
+            background: #E3F2FD;
+            padding: 1rem;
+            border-left: 4px solid #2196F3;
+            margin: 1rem 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .referencias {
+            background: #F5F5F5;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .referencias h3 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+        }
+
+        .referencias p {
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        /* Cards generales */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Actividades */
+        .actividades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .actividad-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .actividad-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .actividad-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .zona-especial {
+            background: linear-gradient(135deg, #FFD700, #FFA726);
+            color: #1976D2;
+            grid-column: 1 / -1;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        /* Equipo */
+        .equipo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .equipo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .equipo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ODS */
+        .ods-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ods-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .ods-3 { border-top: 5px solid #00BF63; }
+        .ods-4 { border-top: 5px solid #C5192D; }
+        .ods-10 { border-top: 5px solid #DD1367; }
+
+        .ods-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Evaluación */
+        .evaluacion-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .kpi-card {
+            background: #E3F2FD;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #2196F3;
+        }
+
+        .kpi-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1976D2;
+        }
+
+        .emoji-evaluation {
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        /* Contacto */
+        .contacto-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1976D2;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-contacto {
+            background: #F5F5F5;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .info-contacto h3 {
+            color: #1976D2;
+            margin-bottom: 1rem;
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .contacto-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card,
+        .actividad-card,
+        .equipo-card,
+        .ods-card {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Gestión de Riesgos */
+        .riesgos-content {
+            display: grid;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .riesgo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+        }
+
+        .riesgo-moderado {
+            border-left-color: #FF9800;
+        }
+
+        .riesgo-tolerable {
+            border-left-color: #4CAF50;
+        }
+
+        .riesgo-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .riesgo-header h3 {
+            color: #1976D2;
+            margin: 0;
+        }
+
+        .nivel-riesgo {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .nivel-riesgo.moderado {
+            background: #FFF3E0;
+            color: #F57C00;
+        }
+
+        .nivel-riesgo.tolerable {
+            background: #E8F5E8;
+            color: #2E7D32;
+        }
+
+        .riesgo-descripcion ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .riesgo-descripcion li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Evaluación Post-Evento */
+        .evaluacion-post-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .feedback-container {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            border-radius: 10px;
+        }
+
+        .feedback-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .feedback-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .preguntas-evaluacion {
+            margin-top: 2rem;
+        }
+
+        .pregunta-card {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #2196F3;
+        }
+
+        .pregunta-card h5 {
+            color: #1976D2;
+            margin-bottom: 0.5rem;
+        }
+
+        .escala {
+            display: block;
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #1976D2, #0D47A1);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo h3 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contacto h4,
+        .footer-redes h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+
+        .redes-sociales {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .redes-sociales a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .redes-sociales a:hover {
+            color: #FFD700;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="#inicio" class="logo">🧩 ExploraTEA</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#justificacion">Justificación</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#que-es">¿Qué es?</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#para-quien">¿Para quién?</a></li>
+                    <li><a href="#donde-cuando">Dónde y cuándo</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#ods">ODS</a></li>
+                    <li><a href="#gestion-riesgos">Riesgos</a></li>
+                    <li><a href="#evaluacion">Evaluación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="section">
+        <div class="hero">
+            <h1>🌟 ExploraTEA 🌟</h1>
+            <p>Un evento lúdico-deportivo inclusivo diseñado especialmente para jóvenes con Trastorno del Espectro Autista</p>
+            <a href="#que-es" class="cta-button">¡Descubre más!</a>
+        </div>
+    </section>
+
+    <section id="justificacion" class="section">
+        <h2>📚 Justificación Académica</h2>
+        <div id="justificacion" class="justificacion-content">
+            <p>El desarrollo de actividades de ocio adaptadas para personas con Trastorno del Espectro Autista (TEA) representa una necesidad fundamental en el ámbito de la inclusión social y el bienestar personal. La evidencia científica demuestra que las intervenciones lúdico-deportivas estructuradas generan beneficios significativos en el desarrollo integral de estos individuos.</p>
+            
+            <div class="cita">
+                "Según López‑Díaz et al. (2021), un programa de ocio deportivo de ocho meses mejoró significativamente las habilidades motrices y sociales en niños con TEA mediante evaluación sistemática."
+            </div>
+            
+            <p>Las actividades físicas y recreativas no solo favorecen el desarrollo motor, sino que también constituyen herramientas terapéuticas eficaces para mejorar la comunicación, la autorregulación emocional y las competencias sociales. La estructuración de estos programas permite crear entornos predecibles y seguros, aspectos fundamentales para el éxito de las intervenciones con población TEA.</p>
+            
+            <div class="cita">
+                "Como muestran Bremer et al. (2019), la actividad física estructurada favorece el bienestar emocional y la interacción social en estos menores."
+            </div>
+            
+            <p>El evento ExploraTEA surge como respuesta a esta necesidad, diseñando un espacio inclusivo donde las actividades lúdico-deportivas se adaptan a las características específicas de los participantes. La implementación de zonas de descanso sensorial, el acompañamiento personalizado y la selección cuidadosa de actividades garantizan un ambiente terapéutico óptimo.</p>
+            
+            <div class="cita">
+                "El ocio inclusivo mejora la calidad de vida, reduce el estrés y previene conductas disruptivas en contextos terapéuticos."
+            </div>
+            
+            <p>Este proyecto representa una oportunidad única para promover la participación activa de jóvenes con TEA en actividades comunitarias, fomentando su desarrollo personal y social mientras se sensibiliza a la comunidad universitaria sobre la importancia de la inclusión.</p>
+            
+            <div class="referencias">
+                <h3>📖 Referencias</h3>
+                <p>López‑Díaz, J. M., Moreno‑Rodríguez, R., & López‑Bastías, J. L. (2021). Análisis del impacto de un programa deportivo en niños con Trastorno del Espectro del Autismo. <em>Revista Iberoamericana de Psicología del Ejercicio y el Deporte</em>.</p>
+                <p>Bremer, E., Crozier, M., & Lloyd, M. (2016). A systematic review of the behavioural outcomes following exercise interventions for children and youth with autism spectrum disorder. <em>Autism</em>, 20(8), 899–915.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="que-es" class="section">
+        <h2>🧩 ¿Qué es ExploraTEA?</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h3>Inclusión Total</h3>
+                <p>Un evento diseñado específicamente para crear un entorno seguro y acogedor donde todos los participantes puedan disfrutar sin barreras.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏃‍♂️</div>
+                <h3>Actividades Adaptadas</h3>
+                <p>Juegos y deportes modificados para respetar las necesidades sensoriales y cognitivas de cada participante.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Espacio Seguro</h3>
+                <p>Ambiente controlado con personal especializado en TEA y zonas de descanso para garantizar el bienestar de todos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="actividades" class="section">
+        <h2>🎮 Actividades ExploraTEA</h2>
+        <div class="actividades-grid">
+            <div class="actividad-card">
+                <div class="actividad-icon">⚽</div>
+                <h3>Fútbol Adaptado</h3>
+                <p>Juego en equipos reducidos con reglas flexibles y pausas regulares para favorecer la participación de todos.</p>
+            </div>
+            <div class="actividad-card">
+                <div class="actividad-icon">🏀</div>
+                <h3>Baloncesto Inclusivo</h3>
+                <p>Canastas a diferentes alturas y balones de distintos tamaños para adaptar la actividad a cada participante.</p>
+            </div>
+            <div class="actividad-card">
+                <div class="actividad-icon">🎯</div>
+                <h3>Circuito Sensorial</h3>
+                <p>Recorrido con diferentes texturas, sonidos y estímulos controlados para explorar habilidades motrices.</p>
+            </div>
+            <div class="actividad-card">
+                <div class="actividad-icon">🤸‍♀️</div>
+                <h3>Yoga y Relajación</h3>
+                <p>Sesiones de movimiento suave y técnicas de respiración para promover la calma y la concentración.</p>
+            </div>
+            <div class="actividad-card">
+                <div class="actividad-icon">🎨</div>
+                <h3>Arte y Movimiento</h3>
+                <p>Actividades que combinan expresión artística con movimiento corporal para estimular la creatividad.</p>
+            </div>
+            <div class="actividad-card">
+                <div class="actividad-icon">🏃‍♂️</div>
+                <h3>Atletismo Adaptado</h3>
+                <p>Carreras de velocidad, saltos y lanzamientos modificados para diferentes niveles de habilidad.</p>
+            </div>
+        </div>
+        <div class="zona-especial">
+            <h3>🏝️ Zona Central de Descanso Sensorial</h3>
+            <p>Espacio tranquilo equipado con elementos sensoriales donde los participantes pueden descansar, autorregularse y socializar en un ambiente calmado. Incluye cojines, mantas con texturas suaves y música relajante.</p>
+        </div>
+    </section>
+
+    <section id="para-quien" class="section">
+        <h2>👥 ¿Para quién es ExploraTEA?</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">👶</div>
+                <h3>Público Objetivo</h3>
+                <p><strong>40 jóvenes con TEA</strong> de edades comprendidas entre 6 y 18 años, organizados en grupos según edad y nivel de desarrollo.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h3>Acompañamiento 1:1</h3>
+                <p>Cada participante contará con un voluntario o profesional asignado para garantizar apoyo personalizado durante toda la actividad.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h3>Entorno Adaptado</h3>
+                <p>Espacio diseñado con señalización visual, reducción de estímulos auditivos y zonas de refugio para crear un ambiente predecible y seguro.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="donde-cuando" class="section">
+        <h2>📍 Dónde y Cuándo</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">📅</div>
+                <h3>Fecha y Horario</h3>
+                <p><strong>Sábado 15 de junio de 2024</strong><br>
+                Horario: 10:00 - 14:00 horas<br>
+                Duración: 4 horas con descansos programados</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏫</div>
+                <h3>Ubicación</h3>
+                <p><strong>Campus Universidad Europea de Madrid</strong><br>
+                Campo de fútbol exterior<br>
+                Calle Tajo, s/n, 28670 Villaviciosa de Odón, Madrid</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h3>Acceso</h3>
+                <p>Aparcamiento gratuito disponible<br>
+                Transporte público: Línea 518 (parada Universidad)<br>
+                Señalización especial para el evento</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipo" class="section">
+        <h2>👨‍👩‍👧‍👦 Nuestro Equipo</h2>
+        <div class="equipo-grid">
+            <div class="equipo-card">
+                <div class="equipo-icon">👨‍💼</div>
+                <h3>Coordinador General</h3>
+                <p>Responsable de la organización y supervisión general del evento.</p>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-icon">🧠</div>
+                <h3>Técnicos TEA</h3>
+                <p>Especialistas en Trastorno del Espectro Autista para apoyo técnico y terapéutico.</p>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-icon">🤝</div>
+                <h3>Voluntarios</h3>
+                <p>Estudiantes formados en atención a personas con TEA para acompañamiento 1:1.</p>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-icon">🏥</div>
+                <h3>Primeros Auxilios</h3>
+                <p>Equipo médico especializado presente durante todo el evento.</p>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-icon">📸</div>
+                <h3>Fotógrafo</h3>
+                <p>Documentación visual del evento respetando la privacidad de los participantes.</p>
+            </div>
+            <div class="equipo-card">
+                <div class="equipo-icon">🎵</div>
+                <h3>Animación</h3>
+                <p>Especialistas en animación adaptada para crear un ambiente lúdico y positivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ods" class="section">
+        <h2>🌍 Objetivos de Desarrollo Sostenible</h2>
+        <div class="ods-container">
+            <div class="ods-card ods-3">
+                <div class="ods-icon">🏥</div>
+                <h3>ODS 3: Salud y Bienestar</h3>
+                <p>Promovemos la actividad física y el bienestar emocional de jóvenes con TEA, contribuyendo a su desarrollo integral y calidad de vida.</p>
+            </div>
+            <div class="ods-card ods-4">
+                <div class="ods-icon">🎓</div>
+                <h3>ODS 4: Educación de Calidad</h3>
+                <p>Ofrecemos oportunidades de aprendizaje inclusivo a través del deporte y el juego, respetando las diferentes formas de aprender.</p>
+            </div>
+            <div class="ods-card ods-10">
+                <div class="ods-icon">⚖️</div>
+                <h3>ODS 10: Reducción de Desigualdades</h3>
+                <p>Creamos un espacio inclusivo que reduce las barreras de participación y promueve la igualdad de oportunidades para todos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="evaluacion" class="section">
+        <h2>📊 Evaluación y Resultados</h2>
+        <div class="evaluacion-content">
+            <h3>🎯 Indicadores Clave de Rendimiento (KPI)</h3>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-number">40</div>
+                    <h4>Participantes</h4>
+                    <p>Jóvenes con TEA inscritos</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">95%</div>
+                    <h4>Satisfacción</h4>
+                    <p>Objetivo de satisfacción familiar</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">6</div>
+                    <h4>Actividades</h4>
+                    <p>Actividades adaptadas ofrecidas</p>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-number">40</div>
+                    <h4>Voluntarios</h4>
+                    <p>Acompañamiento 1:1 garantizado</p>
+                </div>
+            </div>
+            
+            <h3>😊 Sistema de Evaluación con Emojis</h3>
+            <div class="emoji-evaluation">
+                <p><strong>Nivel de Disfrute:</strong> 😄 Muy divertido | 😊 Divertido | 😐 Regular | 😞 Poco divertido</p>
+                <p><strong>Comodidad en el Entorno:</strong> 🏡 Muy cómodo | 😌 Cómodo | 😐 Regular | 😰 Incómodo</p>
+                <p><strong>Participación en Actividades:</strong> 🏃‍♂️ Muy activo | 🚶‍♂️ Activo | 😐 Regular | 😴 Poco activo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section">
+        <h2>📞 Contacto e Inscripción</h2>
+        <div class="contacto-content">
+            <div class="formulario">
+                <h3>📝 Formulario de Inscripción</h3>
+                
